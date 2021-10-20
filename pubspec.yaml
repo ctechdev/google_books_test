@@ -41,5 +41,7 @@ flutter:
     - assets/nocover.png
     - assets/no_cover.gif
     - assets/searching.png
-    - assets/up-arrow.png
+    - assets/Home.png
+    - assets/Search.png
+    - assets/Star.png
 

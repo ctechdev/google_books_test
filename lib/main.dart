@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_books_test/app/auth_widget.dart';
+import 'package:google_books_test/app/home/home_page.dart';
 
 import 'package:google_books_test/app/onboarding/onboarding_page.dart';
 import 'package:google_books_test/app/onboarding/onboarding_view_model.dart';
@@ -46,7 +47,7 @@ class MyApp extends ConsumerWidget {
                 : const OnboardingPage();
           },
         ),
-        signedInBuilder: (_) => const SearchPage(),
+        signedInBuilder: (_) => const HomePage(),
       ),
       onGenerateRoute: (settings) =>
           AppRouter.onGenerateRoute(settings, firebaseAuth),

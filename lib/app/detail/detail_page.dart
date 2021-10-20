@@ -3,9 +3,7 @@ import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:google_books_test/common_widgets/alert_dialogs/alert_dialogs.dart';
 import 'package:google_books_test/models/book.dart';
-import 'package:google_books_test/services/firestore_database.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../top_level_providers.dart';
