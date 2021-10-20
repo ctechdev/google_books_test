@@ -1,10 +1,12 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 
 class MyBottomAppBar extends StatefulWidget {
-  MyBottomAppBar({required this.onTabSelected, required this.selectedIndex});
+   MyBottomAppBar({Key? key, required this.onTabSelected, required this.selectedIndex}) : super(key: key);
 
   final ValueChanged<int> onTabSelected;
-  int selectedIndex;
+   int selectedIndex;
 
   @override
   _MyBottomAppBarState createState() => _MyBottomAppBarState();
@@ -16,7 +18,7 @@ class _MyBottomAppBarState extends State<MyBottomAppBar> {
     return Container(
       color: Colors.transparent,
       
-      margin: EdgeInsets.only(left: 16, right: 16, bottom: 4),
+      margin: const EdgeInsets.only(left: 16, right: 16, bottom: 4),
       
       child: ClipRRect(
         borderRadius: BorderRadius.circular(30),
@@ -25,7 +27,7 @@ class _MyBottomAppBarState extends State<MyBottomAppBar> {
         //   topRight: Radius.circular(30.0),
         // ),
         child: BottomNavigationBar(
-          fixedColor: Color(0xffdf8369),
+          fixedColor: const Color(0xffdf8369),
                 backgroundColor: const Color(0xffC4C6CC),
           //type: BottomNavigationBarType.fixed,
           showUnselectedLabels: false,

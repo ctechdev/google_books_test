@@ -15,13 +15,9 @@ class BooksNotifier extends StateNotifier<BooksState> {
 
     try {
       final books = await _booksRepository.getGoogleBooks(keyword);
-     
+
       state = BooksState.data(books: books);
-      
-       print('OK');
     } catch (e) {
-      print('KO');
-      print(e.toString());
       state = const BooksState.error('Error!');
     }
   }

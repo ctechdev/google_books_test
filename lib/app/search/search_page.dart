@@ -12,40 +12,36 @@ class SearchPage extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, ref) {
     final textEditingController = useTextEditingController();
-
-    final state = ref.watch(booksNotifierProvider);
     return SafeArea(
       child: Scaffold(
 
-        body: Container(
-          child: Stack(
-            children:  <Widget>[
-              const Positioned(
-                top: 30,
+        body: Stack(
+          children:  <Widget>[
+            const Positioned(
+              top: 30,
+              left: 20,
+              child:  SizedBox(
+                      width: 260,
+                      child: Text('Explore thousands of books on the go', 
+                      style:  TextStyle(
+                          //color: Color(0xffC4C6CC),
+                          fontSize: 26.0,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: 'Brutal',
+                        ),
+                          maxLines: 2))),
+              Positioned(
+                top:110,
                 left: 20,
-                child:  SizedBox(
-                        width: 260,
-                        child: Text('Explore thousands of books on the go', 
-                        style:  TextStyle(
-                            //color: Color(0xffC4C6CC),
-                            fontSize: 26.0,
-                            fontWeight: FontWeight.bold,
-                            fontFamily: 'Brutal',
-                          ),
-                            maxLines: 2))),
-                Positioned(
-                  top:110,
-                  left: 20,
-                  right:20,
-                  child: SearchBar(textEditingController: textEditingController)),
-                Positioned(
-                  top:185,
-                  left: 20,
-                  right:20,
-                  bottom: 4,
-                  child: BookConsumer( query: textEditingController.text)),
-            ],
-          ),
+                right:20,
+                child: SearchBar(textEditingController: textEditingController)),
+              Positioned(
+                top:185,
+                left: 20,
+                right:20,
+                bottom: 4,
+                child: BookConsumer( query: textEditingController.text)),
+          ],
         )
       ),
     );
@@ -66,7 +62,7 @@ class SearchBar extends ConsumerWidget {
        shape:
           RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
       elevation: 5,
-      child: Container(
+      child: SizedBox(
             height: 60.0,
             width: double.infinity,
             child: CupertinoTextField(

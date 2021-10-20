@@ -6,8 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:google_books_test/models/book.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../top_level_providers.dart';
-
 class DetailPage extends ConsumerStatefulWidget {
   const DetailPage({Key? key, required this.book}) : super(key: key);
   final Book book;
@@ -19,7 +17,6 @@ class DetailPage extends ConsumerStatefulWidget {
 class _DetailPageState extends ConsumerState<DetailPage> {
   @override
   Widget build(BuildContext context) {
-    final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
     return SafeArea(
       child: Scaffold(
@@ -242,7 +239,6 @@ class _DetailPageState extends ConsumerState<DetailPage> {
       'ratingsCount': widget.book.info.ratingsCount,
       'imageLinks': widget.book.info.imageLinks['thumbnail'].toString(),
     }).then((_) {
-      print("success!");
     });
   }
 }

@@ -12,8 +12,6 @@ import 'package:google_books_test/routing/app_router.dart';
 import 'package:google_books_test/services/shared_preferences_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'app/search/search_page.dart';
-
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();

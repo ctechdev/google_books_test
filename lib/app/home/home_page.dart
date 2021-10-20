@@ -16,8 +16,7 @@ class _HomePageState extends State<HomePage> {
   int bottomSelectedIndex = 0;
   PageController pageController = PageController(initialPage: 1);
 
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+
 
   static const List<Widget> _widgetOptions = <Widget>[
     Dashboard(),

@@ -36,7 +36,6 @@ class AppRouter {
         );
 
       default:
-        // TODO: Throw
         return null;
     }
   }

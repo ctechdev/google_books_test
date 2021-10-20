@@ -18,11 +18,10 @@ class BooksRepository implements IBooksRepository {
         'https://www.googleapis.com/books/v1/volumes?q=${query.trim().replaceAll(' ', '+')}&maxResults=$maxResults';
 
     final result = await http.get(Uri.parse(q));
-    print(q);
+
     if (result.statusCode == 200) {
       final books = <Book>[];
       final list = (jsonDecode(result.body))['items'] as List<dynamic>?;
-      print(list);
       if (list == null) return [];
       for (var e in list) {
         books.add(Book.fromJson(e));

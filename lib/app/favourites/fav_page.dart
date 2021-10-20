@@ -1,7 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:google_books_test/app/books/books_provider.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class FavouritesPage extends HookConsumerWidget {
@@ -9,37 +7,33 @@ class FavouritesPage extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, ref) {
-    final textEditingController = useTextEditingController();
 
-    final state = ref.watch(booksNotifierProvider);
     return SafeArea(
       child: Scaffold(
-          body: Container(
-        child: Stack(
-          children: const <Widget>[
-            Positioned(
-                top: 30,
-                left: 20,
-                child: SizedBox(
-                    width: 260,
-                    child: Text('Your favourite Books',
-                        style: TextStyle(
-                          //color: Color(0xffC4C6CC),
-                          fontSize: 26.0,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: 'Brutal',
-                        ),
-                        maxLines: 2))),
+          body: Stack(
+            children: const <Widget>[
+              Positioned(
+                  top: 30,
+                  left: 20,
+                  child: SizedBox(
+                      width: 260,
+                      child: Text('Your favourite Books',
+                          style: TextStyle(
+                            //color: Color(0xffC4C6CC),
+                            fontSize: 26.0,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'Brutal',
+                          ),
+                          maxLines: 2))),
 
-            // Positioned(
-            //   top:185,
-            //   left: 20,
-            //   right:20,
-            //   bottom: 4,
-            //   child: Text('Favs')),
-          ],
-        ),
-      )),
+              // Positioned(
+              //   top:185,
+              //   left: 20,
+              //   right:20,
+              //   bottom: 4,
+              //   child: Text('Favs')),
+            ],
+          )),
     );
   }
 }
