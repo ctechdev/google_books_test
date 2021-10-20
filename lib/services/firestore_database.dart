@@ -12,7 +12,7 @@ class FirestoreDatabase {
 
   final _service = FirestoreService.instance;
 
-  Future<void> setJob(Book book) => _service.setData(
+  Future<void> setBook(Book book) => _service.setData(
         path: FirestorePath.book(uid, book.id),
         data: book.info.toJson(),
       );

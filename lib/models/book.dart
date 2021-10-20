@@ -37,8 +37,6 @@ class Book {
   }
 }
 
-
-
 class IndustryIdentifier {
   final String type;
   final String identifier;
@@ -81,6 +79,8 @@ class BookInfo {
   /// The amount of pages the book has
   final int pageCount;
 
+  final String printType;
+
   /// The categories the book is in
   final List<String> categories;
 
@@ -98,8 +98,6 @@ class BookInfo {
 
   /// Some image links
   final Map<String, Uri> imageLinks;
-
-  
 
   /// The original language of the book
   final String language;
@@ -119,6 +117,7 @@ class BookInfo {
     required this.language,
     required this.maturityRating,
     required this.pageCount,
+    required this.printType,
     required this.publishedDate,
     required this.rawPublishedDate,
     required this.ratingsCount,
@@ -129,7 +128,6 @@ class BookInfo {
     Map<String, dynamic> json, {
     bool reschemeImageLinks = false,
   }) {
-
     /*
     final publishedDateArray =
         ((json['publishedDate'] as String?) ?? '0000-00-00').split('-');
@@ -163,7 +161,7 @@ class BookInfo {
     */
 
     String publishedDate = ((json['publishedDate']).toString());
-    
+
     final imageLinks = <String, Uri>{};
     (json['imageLinks'] as Map<String, dynamic>?)?.forEach((key, value) {
       Uri uri = Uri.parse(value.toString());
@@ -186,6 +184,7 @@ class BookInfo {
       language: json['language'] ?? '',
       maturityRating: json['maturityRating'] ?? '',
       pageCount: json['pageCount'] ?? 0,
+      printType: json['printType'] ?? '',
       ratingsCount: json['ratingsCount'] ?? 0,
       publishedDate: publishedDate,
       rawPublishedDate: (json['publishedDate'] as String?) ?? '',
@@ -209,6 +208,7 @@ class BookInfo {
         'language': language,
         'maturityRating': maturityRating,
         'pageCount': pageCount,
+        'printType': printType,
         'ratingsCount': ratingsCount,
         'imageLinks': imageLinks,
         'industryIdentifiers': industryIdentifier,
@@ -228,6 +228,7 @@ class BookInfo {
     language: $language
     maturityRating: $maturityRating
     pageCount: $pageCount
+    printType: $printType
     ratingsCount: $ratingsCount
     imageLinks: $imageLinks
     industryIdentifiers: $industryIdentifier''';
