@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class FavBookItem extends StatelessWidget {
@@ -15,12 +17,12 @@ class FavBookItem extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(20.0),
-              child: data['imageLinks'] != null
+              child: data['imageLinks'] != 'null'
                   ? SizedBox(
                       height: 180,
                       width: 120,
                       child: Image.network(
-                        data['imageLinks'],
+                        data['imageLinks'].toString(),
                         fit: BoxFit.fill,
                       ),
                     )
@@ -76,20 +78,38 @@ class FavBookItem extends StatelessWidget {
                     Text(data['averageRating'].toString()),
                   ],
                 ),
-                const SizedBox(height: 6),
-                // Chip(
-                //   padding: EdgeInsets.zero,
-                //   backgroundColor: Colors.blue[200],
-                //   label:  data['categories'] != null
-                //         ? Text(data['categories'].first,
-                //             style: const TextStyle(fontSize: 12))
-                //         : const Text('Uncategorized'),
-                // )
+                const SizedBox(height: 40),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.only(right: 24.0),
+                      child: IconButton(
+                        icon: Icon(Icons.delete_outline),
+                        onPressed: () => removeFromFavourites(),
+                      ),
+                    ),
+                  ],
+                ),
               ],
             ),
           )
         ],
       ),
     );
+  }
+
+  Future<void> removeFromFavourites() async {
+    final firestoreInstance = FirebaseFirestore.instance;
+    var currentUser = FirebaseAuth.instance.currentUser;
+    final collectionRef = firestoreInstance
+        .collection('users')
+        .doc(currentUser!.uid)
+        .collection('books')
+        .id;
+    //usersCollection.document(user.uid);
+
+    print(collectionRef);
   }
 }

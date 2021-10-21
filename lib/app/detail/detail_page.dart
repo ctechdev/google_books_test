@@ -64,11 +64,13 @@ class _DetailPageState extends ConsumerState<DetailPage> {
                               child: SizedBox(
                                 height: 180,
                                 width: 120,
-                                child: Image.network(
+                                child: widget.book.info.imageLinks['smallThumbnail'] != null ?
+                                Image.network(
                                   widget.book.info.imageLinks['smallThumbnail']
                                       .toString(),
                                   fit: BoxFit.fill,
-                                ),
+                                ) : Image.asset('assets/no_cover.gif',
+                          fit: BoxFit.fill, semanticLabel: 'No Cover'),
                               ),
                             )
                           ],
@@ -100,11 +102,13 @@ class _DetailPageState extends ConsumerState<DetailPage> {
                               ),
                             ),
                             const SizedBox(height: 8),
-                            Text(
-                              widget.book.info.publisher,
-                              style: TextStyle(
-                                  fontSize: 14,
-                                  color: Colors.grey.withOpacity(0.70)),
+                            SizedBox(width: 160,
+                              child: Text(
+                                widget.book.info.publisher,
+                                style: TextStyle(
+                                    fontSize: 14,
+                                    color: Colors.grey.withOpacity(0.70)),
+                              ),
                             )
                           ],
                         ),
@@ -169,6 +173,7 @@ class _DetailPageState extends ConsumerState<DetailPage> {
                           style: TextStyle(
                             fontSize: 20.0,
                             fontFamily: 'Brutal',
+                            fontWeight: FontWeight.bold
                           ),
                         ),
                       ),

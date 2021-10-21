@@ -58,7 +58,6 @@ class FavouritesPage extends HookConsumerWidget {
                         snapshot.data!.docs.map((DocumentSnapshot document) {
                       Map<String, dynamic> data =
                           document.data()! as Map<String, dynamic>;
-                      print(document.data().toString());
                       return FavBookItem(data: data);
                     }).toList(),
                   );

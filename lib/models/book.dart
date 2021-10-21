@@ -214,6 +214,15 @@ class BookInfo {
         'industryIdentifiers': industryIdentifier,
       };
 
+  Map<String, dynamic> toMap() {
+    return {
+       'title': title,
+        'authors': authors,
+        'averageRating': averageRating,
+        'categories': categories,
+    };
+  }
+
   @override
   String toString() {
     return '''title: $title
