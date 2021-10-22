@@ -64,13 +64,18 @@ class _DetailPageState extends ConsumerState<DetailPage> {
                               child: SizedBox(
                                 height: 180,
                                 width: 120,
-                                child: widget.book.info.imageLinks['smallThumbnail'] != null ?
-                                Image.network(
-                                  widget.book.info.imageLinks['smallThumbnail']
-                                      .toString(),
-                                  fit: BoxFit.fill,
-                                ) : Image.asset('assets/no_cover.gif',
-                          fit: BoxFit.fill, semanticLabel: 'No Cover'),
+                                child: widget.book.info
+                                            .imageLinks['smallThumbnail'] !=
+                                        null
+                                    ? Image.network(
+                                        widget.book.info
+                                            .imageLinks['smallThumbnail']
+                                            .toString(),
+                                        fit: BoxFit.fill,
+                                      )
+                                    : Image.asset('assets/no_cover.gif',
+                                        fit: BoxFit.fill,
+                                        semanticLabel: 'No Cover'),
                               ),
                             )
                           ],
@@ -102,7 +107,8 @@ class _DetailPageState extends ConsumerState<DetailPage> {
                               ),
                             ),
                             const SizedBox(height: 8),
-                            SizedBox(width: 160,
+                            SizedBox(
+                              width: 160,
                               child: Text(
                                 widget.book.info.publisher,
                                 style: TextStyle(
@@ -171,10 +177,9 @@ class _DetailPageState extends ConsumerState<DetailPage> {
                           'Info about this book',
                           textAlign: TextAlign.left,
                           style: TextStyle(
-                            fontSize: 20.0,
-                            fontFamily: 'Brutal',
-                            fontWeight: FontWeight.bold
-                          ),
+                              fontSize: 20.0,
+                              fontFamily: 'Brutal',
+                              fontWeight: FontWeight.bold),
                         ),
                       ),
                     ],
@@ -227,12 +232,14 @@ class _DetailPageState extends ConsumerState<DetailPage> {
   Future<void> addToFavourites() async {
     final firestoreInstance = FirebaseFirestore.instance;
     var currentUser = FirebaseAuth.instance.currentUser;
-
-    firestoreInstance
+    final bookDocument = firestoreInstance
         .collection('users')
         .doc(currentUser!.uid)
-        .collection('books')
-        .add({
+        .collection('books').doc();
+    
+        bookDocument.set({
+        //.add({
+          'bookId': bookDocument.id,
       'title': widget.book.info.title,
       'authors': widget.book.info.authors,
       'publisher': widget.book.info.publisher,
@@ -242,8 +249,9 @@ class _DetailPageState extends ConsumerState<DetailPage> {
       'pageCount': widget.book.info.pageCount,
       'printType': widget.book.info.printType,
       'ratingsCount': widget.book.info.ratingsCount,
-      'imageLinks': widget.book.info.imageLinks['thumbnail'].toString(),
+      'imageLinks': widget.book.info.imageLinks['thumbnail'].toString(), 
     }).then((_) {
+      
     });
   }
 }

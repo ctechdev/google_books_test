@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:google_books_test/models/book.dart';
 
 class FavBookItem extends StatelessWidget {
   final Map<String, dynamic> data;
@@ -41,21 +42,24 @@ class FavBookItem extends StatelessWidget {
               // mainAxisSize: MainAxisSize.min,
               // mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                SizedBox(
-                  width: 180,
-                  child: data['authors'] != null
-                      ? Text(
-                          'by ${data['authors'][0]}',
-                          style: TextStyle(
-                              fontSize: 14,
-                              color: Colors.grey.withOpacity(0.70)),
-                        )
-                      : Text(
-                          'by Nd',
-                          style: TextStyle(
-                              fontSize: 14,
-                              color: Colors.grey.withOpacity(0.70)),
-                        ),
+                Padding(
+                  padding: const EdgeInsets.only(top:8.0),
+                  child: SizedBox(
+                    width: 180,
+                    child: data['authors'] != null
+                        ? Text(
+                            'by ${data['authors'][0]}',
+                            style: TextStyle(
+                                fontSize: 14,
+                                color: Colors.grey.withOpacity(0.70)),
+                          )
+                        : Text(
+                            'by Nd',
+                            style: TextStyle(
+                                fontSize: 14,
+                                color: Colors.grey.withOpacity(0.70)),
+                          ),
+                  ),
                 ),
                 const SizedBox(height: 6),
                 SizedBox(
@@ -101,15 +105,15 @@ class FavBookItem extends StatelessWidget {
   }
 
   Future<void> removeFromFavourites() async {
+    
     final firestoreInstance = FirebaseFirestore.instance;
     var currentUser = FirebaseAuth.instance.currentUser;
-    final collectionRef = firestoreInstance
+
+    final bookDocument = firestoreInstance
         .collection('users')
         .doc(currentUser!.uid)
-        .collection('books')
-        .id;
-    //usersCollection.document(user.uid);
-
-    print(collectionRef);
+        .collection('books').doc(data['bookId']);
+    
+    return bookDocument.delete();
   }
 }
