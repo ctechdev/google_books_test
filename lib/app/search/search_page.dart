@@ -10,7 +10,7 @@ class SearchPage extends HookConsumerWidget {
   const SearchPage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context, ref) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final textEditingController = useTextEditingController();
     return SafeArea(
       child: Scaffold(

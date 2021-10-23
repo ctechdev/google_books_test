@@ -112,7 +112,7 @@ class FavBookItem extends StatelessWidget {
     final bookDocument = firestoreInstance
         .collection('users')
         .doc(currentUser!.uid)
-        .collection('books').doc(data['bookId']);
+        .collection('books').doc(data['bookId'] as String );
     
     return bookDocument.delete();
   }

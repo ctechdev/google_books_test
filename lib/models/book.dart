@@ -26,13 +26,13 @@ class Book {
     bool reschemeImageLinks = false,
   }) {
     return Book(
-      id: json['id'],
-      etag: json['etag'],
+      id: json['id'] as String,
+      etag: json['etag'] as String,
       info: BookInfo.fromJson(
-        json['volumeInfo'],
+        json['volumeInfo'] as Map<String, dynamic>,
         reschemeImageLinks: reschemeImageLinks,
       ),
-      selfLink: Uri.parse(json['selfLink']),
+      selfLink: Uri.parse(json['selfLink'] as String) ,
     );
   }
 }
@@ -51,8 +51,8 @@ class IndustryIdentifier {
 
   static IndustryIdentifier fromJson(Map<String, dynamic> json) {
     return IndustryIdentifier(
-      type: json['type'] ?? '',
-      identifier: json['identifier'] ?? '',
+      type: json['type'] as String,
+      identifier: json['identifier'] as String,
     );
   }
 }
@@ -143,23 +143,23 @@ class BookInfo {
     });
 
     return BookInfo(
-      title: json['title'] ?? '',
+      title: json['title'] as String? ?? '',
       authors: ((json['authors'] as List<dynamic>?) ?? []).toStringList(),
-      publisher: json['publisher'] ?? '',
+      publisher: json['publisher'] as String? ?? '',
       averageRating: ((json['averageRating'] ?? 0) as num).toDouble(),
       categories: ((json['categories'] as List<dynamic>?) ?? []).toStringList(),
-      contentVersion: json['contentVersion'] ?? '',
-      description: json['description'] ?? '',
-      language: json['language'] ?? '',
-      maturityRating: json['maturityRating'] ?? '',
-      pageCount: json['pageCount'] ?? 0,
-      printType: json['printType'] ?? '',
-      ratingsCount: json['ratingsCount'] ?? 0,
+      contentVersion: json['contentVersion'] as String? ?? '',
+      description: json['description'] as String? ?? '',
+      language: json['language'] as String? ?? '',
+      maturityRating: json['maturityRating'] as String? ?? '',
+      pageCount: json['pageCount'] as int? ?? 0,
+      printType: json['printType'] as String? ?? '',
+      ratingsCount: json['ratingsCount'] as int? ?? 0,
       publishedDate: publishedDate,
       rawPublishedDate: (json['publishedDate'] as String?) ?? '',
       imageLinks: imageLinks,
       industryIdentifier: ((json['industryIdentifiers'] ?? []) as List)
-          .map((i) => IndustryIdentifier.fromJson(i))
+          .map((i) => IndustryIdentifier.fromJson(i as Map<String, dynamic>))
           .toList(),
     );
   }
@@ -194,7 +194,8 @@ class BookInfo {
 
   @override
   String toString() {
-    return '''title: $title
+    return '''
+    title: $title
     authors: $authors
     publisher: $publisher
     publishedDate: $publishedDate
@@ -209,6 +210,7 @@ class BookInfo {
     printType: $printType
     ratingsCount: $ratingsCount
     imageLinks: $imageLinks
-    industryIdentifiers: $industryIdentifier''';
+    industryIdentifiers: $industryIdentifier
+    ''';
   }
 }

@@ -23,8 +23,8 @@ class BooksRepository implements IBooksRepository {
       final books = <Book>[];
       final list = (jsonDecode(result.body))['items'] as List<dynamic>?;
       if (list == null) return [];
-      for (var e in list) {
-        books.add(Book.fromJson(e));
+      for (final e in list) {
+        books.add(Book.fromJson(e as Map<String, dynamic>));
       }
 
       return books;
