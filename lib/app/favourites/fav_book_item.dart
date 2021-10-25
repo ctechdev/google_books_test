@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:google_books_test/models/book.dart';
 
 class FavBookItem extends StatelessWidget {
   final Map<String, dynamic> data;

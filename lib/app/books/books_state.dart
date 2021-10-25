@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:google_books_test/models/book.dart';
 import 'package:google_books_test/models/book_model.dart';
 
 part 'books_state.freezed.dart';
