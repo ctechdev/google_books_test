@@ -1,6 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'books_state.dart';
 
@@ -25,7 +24,7 @@ class _$BooksStateTearOff {
     return const _BooksStateLoading();
   }
 
-  _BooksStateData data({required List<Book> books}) {
+  _BooksStateData data({required List<BookModel> books}) {
     return _BooksStateData(
       books: books,
     );
@@ -47,23 +46,15 @@ mixin _$BooksState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Book> books) data,
+    required TResult Function(List<BookModel> books) data,
     required TResult Function(String? error) error,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(List<Book> books)? data,
-    TResult Function(String? error)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Book> books)? data,
+    TResult Function(List<BookModel> books)? data,
     TResult Function(String? error)? error,
     required TResult orElse(),
   }) =>
@@ -74,14 +65,6 @@ mixin _$BooksState {
     required TResult Function(_BooksStateLoading value) loading,
     required TResult Function(_BooksStateData value) data,
     required TResult Function(_BooksStateError value) error,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_BooksStateInitial value)? initial,
-    TResult Function(_BooksStateLoading value)? loading,
-    TResult Function(_BooksStateData value)? data,
-    TResult Function(_BooksStateError value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -142,8 +125,7 @@ class _$_BooksStateInitial implements _BooksStateInitial {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _BooksStateInitial);
+    return identical(this, other) || (other is _BooksStateInitial);
   }
 
   @override
@@ -154,7 +136,7 @@ class _$_BooksStateInitial implements _BooksStateInitial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Book> books) data,
+    required TResult Function(List<BookModel> books) data,
     required TResult Function(String? error) error,
   }) {
     return initial();
@@ -162,21 +144,10 @@ class _$_BooksStateInitial implements _BooksStateInitial {
 
   @override
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(List<Book> books)? data,
-    TResult Function(String? error)? error,
-  }) {
-    return initial?.call();
-  }
-
-  @override
-  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Book> books)? data,
+    TResult Function(List<BookModel> books)? data,
     TResult Function(String? error)? error,
     required TResult orElse(),
   }) {
@@ -195,17 +166,6 @@ class _$_BooksStateInitial implements _BooksStateInitial {
     required TResult Function(_BooksStateError value) error,
   }) {
     return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_BooksStateInitial value)? initial,
-    TResult Function(_BooksStateLoading value)? loading,
-    TResult Function(_BooksStateData value)? data,
-    TResult Function(_BooksStateError value)? error,
-  }) {
-    return initial?.call(this);
   }
 
   @override
@@ -259,8 +219,7 @@ class _$_BooksStateLoading implements _BooksStateLoading {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _BooksStateLoading);
+    return identical(this, other) || (other is _BooksStateLoading);
   }
 
   @override
@@ -271,7 +230,7 @@ class _$_BooksStateLoading implements _BooksStateLoading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Book> books) data,
+    required TResult Function(List<BookModel> books) data,
     required TResult Function(String? error) error,
   }) {
     return loading();
@@ -279,21 +238,10 @@ class _$_BooksStateLoading implements _BooksStateLoading {
 
   @override
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(List<Book> books)? data,
-    TResult Function(String? error)? error,
-  }) {
-    return loading?.call();
-  }
-
-  @override
-  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Book> books)? data,
+    TResult Function(List<BookModel> books)? data,
     TResult Function(String? error)? error,
     required TResult orElse(),
   }) {
@@ -312,17 +260,6 @@ class _$_BooksStateLoading implements _BooksStateLoading {
     required TResult Function(_BooksStateError value) error,
   }) {
     return loading(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_BooksStateInitial value)? initial,
-    TResult Function(_BooksStateLoading value)? loading,
-    TResult Function(_BooksStateData value)? data,
-    TResult Function(_BooksStateError value)? error,
-  }) {
-    return loading?.call(this);
   }
 
   @override
@@ -350,7 +287,7 @@ abstract class _$BooksStateDataCopyWith<$Res> {
   factory _$BooksStateDataCopyWith(
           _BooksStateData value, $Res Function(_BooksStateData) then) =
       __$BooksStateDataCopyWithImpl<$Res>;
-  $Res call({List<Book> books});
+  $Res call({List<BookModel> books});
 }
 
 /// @nodoc
@@ -371,7 +308,7 @@ class __$BooksStateDataCopyWithImpl<$Res> extends _$BooksStateCopyWithImpl<$Res>
       books: books == freezed
           ? _value.books
           : books // ignore: cast_nullable_to_non_nullable
-              as List<Book>,
+              as List<BookModel>,
     ));
   }
 }
@@ -382,7 +319,7 @@ class _$_BooksStateData implements _BooksStateData {
   const _$_BooksStateData({required this.books});
 
   @override
-  final List<Book> books;
+  final List<BookModel> books;
 
   @override
   String toString() {
@@ -392,14 +329,14 @@ class _$_BooksStateData implements _BooksStateData {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _BooksStateData &&
-            const DeepCollectionEquality().equals(other.books, books));
+        (other is _BooksStateData &&
+            (identical(other.books, books) ||
+                const DeepCollectionEquality().equals(other.books, books)));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(books));
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(books);
 
   @JsonKey(ignore: true)
   @override
@@ -411,7 +348,7 @@ class _$_BooksStateData implements _BooksStateData {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Book> books) data,
+    required TResult Function(List<BookModel> books) data,
     required TResult Function(String? error) error,
   }) {
     return data(books);
@@ -419,21 +356,10 @@ class _$_BooksStateData implements _BooksStateData {
 
   @override
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(List<Book> books)? data,
-    TResult Function(String? error)? error,
-  }) {
-    return data?.call(books);
-  }
-
-  @override
-  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Book> books)? data,
+    TResult Function(List<BookModel> books)? data,
     TResult Function(String? error)? error,
     required TResult orElse(),
   }) {
@@ -456,17 +382,6 @@ class _$_BooksStateData implements _BooksStateData {
 
   @override
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_BooksStateInitial value)? initial,
-    TResult Function(_BooksStateLoading value)? loading,
-    TResult Function(_BooksStateData value)? data,
-    TResult Function(_BooksStateError value)? error,
-  }) {
-    return data?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_BooksStateInitial value)? initial,
     TResult Function(_BooksStateLoading value)? loading,
@@ -482,10 +397,10 @@ class _$_BooksStateData implements _BooksStateData {
 }
 
 abstract class _BooksStateData implements BooksState {
-  const factory _BooksStateData({required List<Book> books}) =
+  const factory _BooksStateData({required List<BookModel> books}) =
       _$_BooksStateData;
 
-  List<Book> get books;
+  List<BookModel> get books => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$BooksStateDataCopyWith<_BooksStateData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -539,13 +454,14 @@ class _$_BooksStateError implements _BooksStateError {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _BooksStateError &&
-            (identical(other.error, error) || other.error == error));
+        (other is _BooksStateError &&
+            (identical(other.error, error) ||
+                const DeepCollectionEquality().equals(other.error, error)));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, error);
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(error);
 
   @JsonKey(ignore: true)
   @override
@@ -557,7 +473,7 @@ class _$_BooksStateError implements _BooksStateError {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Book> books) data,
+    required TResult Function(List<BookModel> books) data,
     required TResult Function(String? error) error,
   }) {
     return error(this.error);
@@ -565,21 +481,10 @@ class _$_BooksStateError implements _BooksStateError {
 
   @override
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(List<Book> books)? data,
-    TResult Function(String? error)? error,
-  }) {
-    return error?.call(this.error);
-  }
-
-  @override
-  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Book> books)? data,
+    TResult Function(List<BookModel> books)? data,
     TResult Function(String? error)? error,
     required TResult orElse(),
   }) {
@@ -602,17 +507,6 @@ class _$_BooksStateError implements _BooksStateError {
 
   @override
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_BooksStateInitial value)? initial,
-    TResult Function(_BooksStateLoading value)? loading,
-    TResult Function(_BooksStateData value)? data,
-    TResult Function(_BooksStateError value)? error,
-  }) {
-    return error?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_BooksStateInitial value)? initial,
     TResult Function(_BooksStateLoading value)? loading,
@@ -630,7 +524,7 @@ class _$_BooksStateError implements _BooksStateError {
 abstract class _BooksStateError implements BooksState {
   const factory _BooksStateError([String? error]) = _$_BooksStateError;
 
-  String? get error;
+  String? get error => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$BooksStateErrorCopyWith<_BooksStateError> get copyWith =>
       throw _privateConstructorUsedError;

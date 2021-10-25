@@ -6,71 +6,82 @@ part of 'book_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_BookModel _$$_BookModelFromJson(Map<String, dynamic> json) => _$_BookModel(
-      json['id'] as String,
-      json['etag'] as String?,
-      json['selfLink'] == null ? null : Uri.parse(json['selfLink'] as String),
-      BookInfo.fromJson(json['info'] as Map<String, dynamic>),
-    );
+_$_BookModel _$_$_BookModelFromJson(Map<String, dynamic> json) {
+  return _$_BookModel(
+    id: json['id'] as String,
+    etag: json['etag'] as String,
+    selfLink: Uri.parse(json['selfLink'] as String),
+    volumeInfo: VolumeInfo.fromJson(json['volumeInfo'] as Map<String, dynamic>),
+  );
+}
 
-Map<String, dynamic> _$$_BookModelToJson(_$_BookModel instance) =>
+Map<String, dynamic> _$_$_BookModelToJson(_$_BookModel instance) =>
     <String, dynamic>{
       'id': instance.id,
       'etag': instance.etag,
-      'selfLink': instance.selfLink?.toString(),
-      'info': instance.info,
+      'selfLink': instance.selfLink.toString(),
+      'volumeInfo': instance.volumeInfo,
     };
 
-_$_BookInfo _$$_BookInfoFromJson(Map<String, dynamic> json) => _$_BookInfo(
-      json['title'] as String,
-      (json['authors'] as List<dynamic>).map((e) => e as String).toList(),
-      json['publisher'] as String,
-      json['publishedDate'] as String?,
-      json['rawPublishedDate'] as String,
-      json['description'] as String,
-      json['pageCount'] as int,
-      json['printType'] as String,
-      (json['categories'] as List<dynamic>).map((e) => e as String).toList(),
-      (json['averageRating'] as num).toDouble(),
-      json['ratingsCount'] as int,
-      (json['imageLinks'] as Map<String, dynamic>).map(
-        (k, e) => MapEntry(k, Uri.parse(e as String)),
-      ),
-      json['language'] as String,
-      (json['industryIdentifier'] as List<dynamic>)
-          .map((e) => IndustryIdentifier.fromJson(e as Map<String, dynamic>))
-          .toList(),
-    );
+_$_VolumeInfo _$_$_VolumeInfoFromJson(Map<String, dynamic> json) {
+  return _$_VolumeInfo(
+    title: json['title'] as String,
+    authors:
+        (json['authors'] as List<dynamic>?)?.map((e) => e as String).toList(),
+    publisher: json['publisher'] as String? ?? '',
+    description: json['description'] as String?,
+    pageCount: json['pageCount'] as int?,
+    printType: json['printType'] as String?,
+    categories: (json['categories'] as List<dynamic>?)
+            ?.map((e) => e as String)
+            .toList() ??
+        ['Uncategorized'],
+    averageRating: (json['averageRating'] as num?)?.toDouble(),
+    ratingsCount: json['ratingsCount'] as int?,
+    imageLinks: json['imageLinks'] == null
+        ? null
+        : ImageLinks.fromJson(json['imageLinks'] as Map<String, dynamic>),
+  );
+}
 
-Map<String, dynamic> _$$_BookInfoToJson(_$_BookInfo instance) =>
+Map<String, dynamic> _$_$_VolumeInfoToJson(_$_VolumeInfo instance) =>
     <String, dynamic>{
       'title': instance.title,
       'authors': instance.authors,
       'publisher': instance.publisher,
-      'publishedDate': instance.publishedDate,
-      'rawPublishedDate': instance.rawPublishedDate,
       'description': instance.description,
       'pageCount': instance.pageCount,
       'printType': instance.printType,
       'categories': instance.categories,
       'averageRating': instance.averageRating,
       'ratingsCount': instance.ratingsCount,
-      'imageLinks':
-          instance.imageLinks.map((k, e) => MapEntry(k, e.toString())),
-      'language': instance.language,
-      'industryIdentifier': instance.industryIdentifier,
+      'imageLinks': instance.imageLinks,
     };
 
-_$_IndustryIdentifier _$$_IndustryIdentifierFromJson(
-        Map<String, dynamic> json) =>
-    _$_IndustryIdentifier(
-      json['type'] as String,
-      json['identifier'] as String,
-    );
+_$_IndustryIdentifier _$_$_IndustryIdentifierFromJson(
+    Map<String, dynamic> json) {
+  return _$_IndustryIdentifier(
+    json['type'] as String,
+    json['identifier'] as String,
+  );
+}
 
-Map<String, dynamic> _$$_IndustryIdentifierToJson(
+Map<String, dynamic> _$_$_IndustryIdentifierToJson(
         _$_IndustryIdentifier instance) =>
     <String, dynamic>{
       'type': instance.type,
       'identifier': instance.identifier,
+    };
+
+_$_ImageLinks _$_$_ImageLinksFromJson(Map<String, dynamic> json) {
+  return _$_ImageLinks(
+    smallThumbnail: json['smallThumbnail'] as String,
+    thumbnail: json['thumbnail'] as String,
+  );
+}
+
+Map<String, dynamic> _$_$_ImageLinksToJson(_$_ImageLinks instance) =>
+    <String, dynamic>{
+      'smallThumbnail': instance.smallThumbnail,
+      'thumbnail': instance.thumbnail,
     };

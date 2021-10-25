@@ -1,16 +1,18 @@
+// ignore_for_file: cast_nullable_to_non_nullable
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_books_test/app/detail/detail_page.dart';
 import 'package:google_books_test/app/home/home_page.dart';
 import 'package:google_books_test/app/sign_in/email_password_signin/email_password_sign_in_page.dart';
-import 'package:google_books_test/models/book.dart';
+import 'package:google_books_test/models/book_model.dart';
+
 
 class AppRoutes {
   static const emailPasswordSignInPage = '/email-password-sign-in-page';
   static const detailsPage = '/details-page';
   static const favouritesPage = '/favourites-page';
   static const homePage = '/home-page';
-
 }
 
 class AppRouter {
@@ -30,14 +32,12 @@ class AppRouter {
         );
       case AppRoutes.detailsPage:
         return MaterialPageRoute<dynamic>(
-          builder: (_) => DetailPage(book: args as Book),
+          builder: (_) => DetailsPage(book: args as BookModel),
           settings: settings,
           fullscreenDialog: true,
         );
-
-      default:
+          default:
         return null;
     }
   }
 }
-

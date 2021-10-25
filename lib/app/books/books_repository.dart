@@ -1,35 +1,39 @@
 import 'dart:convert';
 import 'package:google_books_test/models/book.dart';
+import 'package:google_books_test/models/book_model.dart';
 import 'package:http/http.dart' as http;
+import 'package:logger/logger.dart';
 
 abstract class IBooksRepository {
-  Future<List<Book>> getGoogleBooks(String keyword);
+  Future<List<BookModel>> getGoogleBooks(String keyword);
 }
 
 class BooksRepository implements IBooksRepository {
   @override
-  Future<List<Book>> getGoogleBooks(String query) async {
-    int maxResults = 40;
+  Future<List<BookModel>> getGoogleBooks(String query) async {
+    const int maxResults = 40;
     assert(query.isNotEmpty);
+    final Logger logger = Logger(printer: PrettyPrinter(printEmojis: false));
 
     // assert(startIndex <= maxResults);
 
-    var q =
+    final q =
         'https://www.googleapis.com/books/v1/volumes?q=${query.trim().replaceAll(' ', '+')}&maxResults=$maxResults';
 
     final result = await http.get(Uri.parse(q));
-
+    print(result.statusCode);
     if (result.statusCode == 200) {
-      final books = <Book>[];
+      final books = <BookModel>[];
       final list = (jsonDecode(result.body))['items'] as List<dynamic>?;
+      logger.i(list!.first);
       if (list == null) return [];
       for (final e in list) {
-        books.add(Book.fromJson(e as Map<String, dynamic>));
+        books.add(BookModel.fromJson(e as Map<String, dynamic>));
       }
 
       return books;
     } else {
-      throw (result.body);
+      throw result.body;
     }
   }
 }

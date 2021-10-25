@@ -3,18 +3,18 @@ import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:google_books_test/models/book.dart';
+import 'package:google_books_test/models/book_model.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class DetailPage extends ConsumerStatefulWidget {
-  const DetailPage({Key? key, required this.book}) : super(key: key);
-  final Book book;
-
+class DetailsPage extends ConsumerStatefulWidget {
+  const DetailsPage({Key? key, required this.book}) : super(key: key);
+  final BookModel book;
+//TODO BookModel
   @override
-  _DetailPageState createState() => _DetailPageState();
+  _DetailsPageState createState() => _DetailsPageState();
 }
 
-class _DetailPageState extends ConsumerState<DetailPage> {
+class _DetailsPageState extends ConsumerState<DetailsPage> {
   @override
   Widget build(BuildContext context) {
     final double width = MediaQuery.of(context).size.width;
@@ -64,13 +64,10 @@ class _DetailPageState extends ConsumerState<DetailPage> {
                               child: SizedBox(
                                 height: 180,
                                 width: 120,
-                                child: widget.book.info
-                                            .imageLinks['smallThumbnail'] !=
-                                        null
+                                child: widget.book.volumeInfo.imageLinks != null
                                     ? Image.network(
-                                        widget.book.info
-                                            .imageLinks['smallThumbnail']
-                                            .toString(),
+                                        widget.book.volumeInfo.imageLinks!
+                                            .thumbnail,
                                         fit: BoxFit.fill,
                                       )
                                     : Image.asset('assets/no_cover.gif',
@@ -87,7 +84,7 @@ class _DetailPageState extends ConsumerState<DetailPage> {
                           children: <Widget>[
                             SizedBox(
                               width: 200,
-                              child: Text(widget.book.info.title,
+                              child: Text(widget.book.volumeInfo.title,
                                   style: const TextStyle(
                                     //color: Color(0xffC4C6CC),
                                     fontSize: 24.0,
@@ -99,18 +96,26 @@ class _DetailPageState extends ConsumerState<DetailPage> {
                             const SizedBox(height: 8),
                             SizedBox(
                               width: 140,
-                              child: Text(
-                                'by ${widget.book.info.authors.toString().trim().replaceAll('[', '').replaceAll(']', '')}',
-                                style: TextStyle(
-                                    fontSize: 14,
-                                    color: Colors.grey.withOpacity(0.70)),
-                              ),
+                              child: widget.book.volumeInfo.authors != null
+                                  ? Text(
+                                      'by ${widget.book.volumeInfo.authors.toString().trim().replaceAll('[', '').replaceAll(']', '')}',
+                                      style: TextStyle(
+                                          fontSize: 14,
+                                          color: Colors.grey.withOpacity(0.70)),
+                                    )
+                                  : Text(
+                                      'Unkown Author',
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                        color: Colors.grey.withOpacity(0.70),
+                                      ),
+                                    ),
                             ),
                             const SizedBox(height: 8),
                             SizedBox(
                               width: 160,
                               child: Text(
-                                widget.book.info.publisher,
+                                widget.book.volumeInfo.publisher!,
                                 style: TextStyle(
                                     fontSize: 14,
                                     color: Colors.grey.withOpacity(0.70)),
@@ -127,7 +132,10 @@ class _DetailPageState extends ConsumerState<DetailPage> {
                         Column(children: <Widget>[
                           Row(
                             children: <Widget>[
-                              Text(widget.book.info.averageRating.toString()),
+                              Text(widget.book.volumeInfo.averageRating != null
+                                  ? widget.book.volumeInfo.averageRating
+                                      .toString()
+                                  : '0'),
                               const SizedBox(width: 4),
                               Icon(
                                 Icons.star,
@@ -138,7 +146,10 @@ class _DetailPageState extends ConsumerState<DetailPage> {
                           ),
                           Row(
                             children: <Widget>[
-                              Text(widget.book.info.ratingsCount.toString()),
+                              Text(widget.book.volumeInfo.ratingsCount != null
+                                  ? widget.book.volumeInfo.ratingsCount
+                                      .toString()
+                                  : '0'),
                               const SizedBox(width: 4),
                               const Text('ratings')
                             ],
@@ -152,7 +163,7 @@ class _DetailPageState extends ConsumerState<DetailPage> {
                         ),
                         Column(children: <Widget>[
                           const Icon(Icons.book_outlined),
-                          Text(widget.book.info.printType),
+                          Text(widget.book.volumeInfo.printType!),
                         ]),
                         SizedBox(
                           child: Text('|',
@@ -161,9 +172,13 @@ class _DetailPageState extends ConsumerState<DetailPage> {
                                   color: Colors.grey.withOpacity(0.50))),
                         ),
                         Column(
-                          children: <Widget>[
-                            Text(widget.book.info.pageCount.toString()),
-                            const Text('pages'),
+                          children:  <Widget>[
+                            // ignore: prefer_if_elements_to_conditional_expressions
+                            widget.book.volumeInfo.pageCount != null
+                                ? Text(
+                                    widget.book.volumeInfo.pageCount.toString())
+                                :  const Text('-'),
+                             const Text('pages'),
                           ],
                         ),
                       ],
@@ -190,9 +205,9 @@ class _DetailPageState extends ConsumerState<DetailPage> {
                         padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
                         child: SizedBox(
                           width: width - 32,
-                          child: widget.book.info.description.isNotEmpty
+                          child: widget.book.volumeInfo.description != null
                               ? Text(
-                                  widget.book.info.description,
+                                  widget.book.volumeInfo.description!,
                                   maxLines: 15,
                                   textAlign: TextAlign.justify,
                                   style: const TextStyle(
@@ -214,14 +229,12 @@ class _DetailPageState extends ConsumerState<DetailPage> {
                       Padding(
                           padding: const EdgeInsets.fromLTRB(16, 8, 0, 0),
                           child: Chip(
-                            shape: const StadiumBorder(side: BorderSide()),
-                            padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
-                            backgroundColor: Colors.transparent,
-                            label: widget.book.info.categories.isNotEmpty
-                                ? Text(widget.book.info.categories.first,
-                                    style: const TextStyle(fontSize: 14))
-                                : const Text('Uncategorized'),
-                          )),
+                              shape: const StadiumBorder(side: BorderSide()),
+                              padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
+                              backgroundColor: Colors.transparent,
+                              label: Text(
+                                  widget.book.volumeInfo.categories.first,
+                                  style: const TextStyle(fontSize: 14)))),
                     ],
                   )
                 ]),
@@ -235,23 +248,22 @@ class _DetailPageState extends ConsumerState<DetailPage> {
     final bookDocument = firestoreInstance
         .collection('users')
         .doc(currentUser!.uid)
-        .collection('books').doc();
-    
-        bookDocument.set({
-        //.add({
-          'bookId': bookDocument.id,
-      'title': widget.book.info.title,
-      'authors': widget.book.info.authors,
-      'publisher': widget.book.info.publisher,
-      'averageRating': widget.book.info.averageRating,
-      'categories': widget.book.info.categories,
-      'description': widget.book.info.description,
-      'pageCount': widget.book.info.pageCount,
-      'printType': widget.book.info.printType,
-      'ratingsCount': widget.book.info.ratingsCount,
-      'imageLinks': widget.book.info.imageLinks['thumbnail'].toString(), 
-    }).then((_) {
-      
-    });
+        .collection('books')
+        .doc();
+
+    bookDocument.set({
+      //.add({
+      'bookId': bookDocument.id,
+      'title': widget.book.volumeInfo.title,
+      'authors': widget.book.volumeInfo.authors,
+      'publisher': widget.book.volumeInfo.publisher,
+      'averageRating': widget.book.volumeInfo.averageRating,
+      'categories': widget.book.volumeInfo.categories,
+      'description': widget.book.volumeInfo.description,
+      'pageCount': widget.book.volumeInfo.pageCount,
+      'printType': widget.book.volumeInfo.printType,
+      'ratingsCount': widget.book.volumeInfo.ratingsCount,
+      'imageLinks': widget.book.volumeInfo.imageLinks!.smallThumbnail,
+    }).then((_) {});
   }
 }

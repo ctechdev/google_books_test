@@ -9,7 +9,7 @@ class BookConsumer extends ConsumerWidget {
   final String query;
 
   @override
-  Widget build(BuildContext context, ref) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final bookList = ref.watch(booksNotifierProvider);
 
     return bookList.when(
@@ -19,8 +19,8 @@ class BookConsumer extends ConsumerWidget {
               children: <Widget>[
                 
                 Image.asset('assets/searching.png',
-                  width: 120, semanticLabel: 'Search Books'),
-              ])),
+                  width: 120, semanticLabel: 'Search Books',),
+              ],),),
         loading: () => const Center(child: CircularProgressIndicator()),
         error: (error) => const Text('Oops, error'),
         data: (books) => Column(
@@ -37,7 +37,7 @@ class BookConsumer extends ConsumerWidget {
 
                         fontFamily: 'Brutal',
                       ),
-                      maxLines: 2),
+                      maxLines: 2,),
                 ),
                 Expanded(
                   child: ListView.builder(
@@ -52,6 +52,6 @@ class BookConsumer extends ConsumerWidget {
                   ),
                 )
               ],
-            ));
+            ),);
   }
 }

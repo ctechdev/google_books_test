@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:google_books_test/models/book.dart';
+import 'package:google_books_test/models/book_model.dart';
 
 part 'books_state.freezed.dart';
 
@@ -8,7 +9,7 @@ extension BooksGetters on BooksState {
 }
 
 @freezed
- class BooksState with _$BooksState {
+class BooksState with _$BooksState {
   ///Initial
   const factory BooksState.initial() = _BooksStateInitial;
 
@@ -16,7 +17,8 @@ extension BooksGetters on BooksState {
   const factory BooksState.loading() = _BooksStateLoading;
 
   ///Data
-  const factory BooksState.data({required List<Book> books}) = _BooksStateData;
+  const factory BooksState.data({required List<BookModel> books}) =
+      _BooksStateData;
 
   ///Error
   const factory BooksState.error([String? error]) = _BooksStateError;

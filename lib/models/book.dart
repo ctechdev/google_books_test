@@ -1,16 +1,6 @@
 import 'package:google_books_test/models/extensions.dart';
 
 class Book {
-  /// The id of the book
-  final String id;
-  final String? etag;
-
-  /// A self link containing more especific information
-  final Uri? selfLink;
-
-  /// The informations about the book
-  final BookInfo info;
-
   const Book({
     required this.id,
     this.etag,
@@ -18,10 +8,15 @@ class Book {
     this.selfLink,
   });
 
+  final String id;
+  final String? etag;
+  final Uri? selfLink;
+  final BookInfo info;
+
   @override
   String toString() => '$id:${info.title}';
 
-  static Book fromJson(
+  factory Book.fromJson(
     Map<String, dynamic> json, {
     bool reschemeImageLinks = false,
   }) {
@@ -32,79 +27,32 @@ class Book {
         json['volumeInfo'] as Map<String, dynamic>,
         reschemeImageLinks: reschemeImageLinks,
       ),
-      selfLink: Uri.parse(json['selfLink'] as String) ,
+      selfLink: Uri.parse(json['selfLink'] as String),
     );
   }
 }
 
 class IndustryIdentifier {
-  final String type;
-  final String identifier;
-
   const IndustryIdentifier({
     required this.type,
     required this.identifier,
   });
 
-  @override
-  String toString() => '$type:$identifier';
-
-  static IndustryIdentifier fromJson(Map<String, dynamic> json) {
+  factory IndustryIdentifier.fromJson(Map<String, dynamic> json) {
     return IndustryIdentifier(
       type: json['type'] as String,
       identifier: json['identifier'] as String,
     );
   }
+
+  final String type;
+  final String identifier;
+
+  @override
+  String toString() => '$type:$identifier';
 }
 
 class BookInfo {
-  /// The book title
-  final String title;
-
-  /// A list with the name of all the authors of the book
-  final List<String> authors;
-
-  /// The publisher name
-  final String publisher;
-
-  /// The date the book was published
-  final String? publishedDate;
-
-  /// The date the book was published in raw string format
-  final String rawPublishedDate;
-
-  /// The description of the book
-  final String description;
-
-  /// The amount of pages the book has
-  final int pageCount;
-
-  final String printType;
-
-  /// The categories the book is in
-  final List<String> categories;
-
-  /// The average rating
-  final double averageRating;
-
-  /// How many people rated the book
-  final int ratingsCount;
-
-  /// Wether the book is mature or not
-  final String maturityRating;
-
-  /// The content version
-  final String contentVersion;
-
-  /// Some image links
-  final Map<String, Uri> imageLinks;
-
-  /// The original language of the book
-  final String language;
-
-  /// The industryIdentifiers of the book (ISBN)
-  final List<IndustryIdentifier> industryIdentifier;
-
   const BookInfo({
     required this.title,
     required this.authors,
@@ -124,12 +72,11 @@ class BookInfo {
     required this.industryIdentifier,
   });
 
-  static BookInfo fromJson(
+  factory BookInfo.fromJson(
     Map<String, dynamic> json, {
     bool reschemeImageLinks = false,
   }) {
-
-    String publishedDate = ((json['publishedDate']).toString());
+    final String publishedDate = (json['publishedDate']).toString();
 
     final imageLinks = <String, Uri>{};
     (json['imageLinks'] as Map<String, dynamic>?)?.forEach((key, value) {
@@ -164,6 +111,23 @@ class BookInfo {
     );
   }
 
+  final String title;
+  final List<String> authors;
+  final String publisher;
+  final String? publishedDate;
+  final String rawPublishedDate;
+  final String description;
+  final int pageCount;
+  final String printType;
+  final List<String> categories;
+  final double averageRating;
+  final int ratingsCount;
+  final String maturityRating;
+  final String contentVersion;
+  final Map<String, Uri> imageLinks;
+  final String language;
+  final List<IndustryIdentifier> industryIdentifier;
+
   Map<String, dynamic> toJson() => {
         'title': title,
         'authors': authors,
@@ -182,15 +146,6 @@ class BookInfo {
         'imageLinks': imageLinks,
         'industryIdentifiers': industryIdentifier,
       };
-
-  Map<String, dynamic> toMap() {
-    return {
-       'title': title,
-        'authors': authors,
-        'averageRating': averageRating,
-        'categories': categories,
-    };
-  }
 
   @override
   String toString() {

@@ -1,6 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'book_model.dart';
 
@@ -21,16 +20,20 @@ BookModel _$BookModelFromJson(Map<String, dynamic> json) {
 class _$BookModelTearOff {
   const _$BookModelTearOff();
 
-  _BookModel call(String id, String? etag, Uri? selfLink, BookInfo info) {
+  _BookModel call(
+      {required String id,
+      required String etag,
+      required Uri selfLink,
+      required VolumeInfo volumeInfo}) {
     return _BookModel(
-      id,
-      etag,
-      selfLink,
-      info,
+      id: id,
+      etag: etag,
+      selfLink: selfLink,
+      volumeInfo: volumeInfo,
     );
   }
 
-  BookModel fromJson(Map<String, Object?> json) {
+  BookModel fromJson(Map<String, Object> json) {
     return BookModel.fromJson(json);
   }
 }
@@ -41,9 +44,9 @@ const $BookModel = _$BookModelTearOff();
 /// @nodoc
 mixin _$BookModel {
   String get id => throw _privateConstructorUsedError;
-  String? get etag => throw _privateConstructorUsedError;
-  Uri? get selfLink => throw _privateConstructorUsedError;
-  BookInfo get info => throw _privateConstructorUsedError;
+  String get etag => throw _privateConstructorUsedError;
+  Uri get selfLink => throw _privateConstructorUsedError;
+  VolumeInfo get volumeInfo => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -55,9 +58,9 @@ mixin _$BookModel {
 abstract class $BookModelCopyWith<$Res> {
   factory $BookModelCopyWith(BookModel value, $Res Function(BookModel) then) =
       _$BookModelCopyWithImpl<$Res>;
-  $Res call({String id, String? etag, Uri? selfLink, BookInfo info});
+  $Res call({String id, String etag, Uri selfLink, VolumeInfo volumeInfo});
 
-  $BookInfoCopyWith<$Res> get info;
+  $VolumeInfoCopyWith<$Res> get volumeInfo;
 }
 
 /// @nodoc
@@ -73,7 +76,7 @@ class _$BookModelCopyWithImpl<$Res> implements $BookModelCopyWith<$Res> {
     Object? id = freezed,
     Object? etag = freezed,
     Object? selfLink = freezed,
-    Object? info = freezed,
+    Object? volumeInfo = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -83,22 +86,22 @@ class _$BookModelCopyWithImpl<$Res> implements $BookModelCopyWith<$Res> {
       etag: etag == freezed
           ? _value.etag
           : etag // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       selfLink: selfLink == freezed
           ? _value.selfLink
           : selfLink // ignore: cast_nullable_to_non_nullable
-              as Uri?,
-      info: info == freezed
-          ? _value.info
-          : info // ignore: cast_nullable_to_non_nullable
-              as BookInfo,
+              as Uri,
+      volumeInfo: volumeInfo == freezed
+          ? _value.volumeInfo
+          : volumeInfo // ignore: cast_nullable_to_non_nullable
+              as VolumeInfo,
     ));
   }
 
   @override
-  $BookInfoCopyWith<$Res> get info {
-    return $BookInfoCopyWith<$Res>(_value.info, (value) {
-      return _then(_value.copyWith(info: value));
+  $VolumeInfoCopyWith<$Res> get volumeInfo {
+    return $VolumeInfoCopyWith<$Res>(_value.volumeInfo, (value) {
+      return _then(_value.copyWith(volumeInfo: value));
     });
   }
 }
@@ -109,10 +112,10 @@ abstract class _$BookModelCopyWith<$Res> implements $BookModelCopyWith<$Res> {
           _BookModel value, $Res Function(_BookModel) then) =
       __$BookModelCopyWithImpl<$Res>;
   @override
-  $Res call({String id, String? etag, Uri? selfLink, BookInfo info});
+  $Res call({String id, String etag, Uri selfLink, VolumeInfo volumeInfo});
 
   @override
-  $BookInfoCopyWith<$Res> get info;
+  $VolumeInfoCopyWith<$Res> get volumeInfo;
 }
 
 /// @nodoc
@@ -129,25 +132,25 @@ class __$BookModelCopyWithImpl<$Res> extends _$BookModelCopyWithImpl<$Res>
     Object? id = freezed,
     Object? etag = freezed,
     Object? selfLink = freezed,
-    Object? info = freezed,
+    Object? volumeInfo = freezed,
   }) {
     return _then(_BookModel(
-      id == freezed
+      id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      etag == freezed
+      etag: etag == freezed
           ? _value.etag
           : etag // ignore: cast_nullable_to_non_nullable
-              as String?,
-      selfLink == freezed
+              as String,
+      selfLink: selfLink == freezed
           ? _value.selfLink
           : selfLink // ignore: cast_nullable_to_non_nullable
-              as Uri?,
-      info == freezed
-          ? _value.info
-          : info // ignore: cast_nullable_to_non_nullable
-              as BookInfo,
+              as Uri,
+      volumeInfo: volumeInfo == freezed
+          ? _value.volumeInfo
+          : volumeInfo // ignore: cast_nullable_to_non_nullable
+              as VolumeInfo,
     ));
   }
 }
@@ -155,23 +158,28 @@ class __$BookModelCopyWithImpl<$Res> extends _$BookModelCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_BookModel extends _BookModel with DiagnosticableTreeMixin {
-  const _$_BookModel(this.id, this.etag, this.selfLink, this.info) : super._();
+  const _$_BookModel(
+      {required this.id,
+      required this.etag,
+      required this.selfLink,
+      required this.volumeInfo})
+      : super._();
 
   factory _$_BookModel.fromJson(Map<String, dynamic> json) =>
-      _$$_BookModelFromJson(json);
+      _$_$_BookModelFromJson(json);
 
   @override
   final String id;
   @override
-  final String? etag;
+  final String etag;
   @override
-  final Uri? selfLink;
+  final Uri selfLink;
   @override
-  final BookInfo info;
+  final VolumeInfo volumeInfo;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'BookModel(id: $id, etag: $etag, selfLink: $selfLink, info: $info)';
+    return 'BookModel(id: $id, etag: $etag, selfLink: $selfLink, volumeInfo: $volumeInfo)';
   }
 
   @override
@@ -182,23 +190,32 @@ class _$_BookModel extends _BookModel with DiagnosticableTreeMixin {
       ..add(DiagnosticsProperty('id', id))
       ..add(DiagnosticsProperty('etag', etag))
       ..add(DiagnosticsProperty('selfLink', selfLink))
-      ..add(DiagnosticsProperty('info', info));
+      ..add(DiagnosticsProperty('volumeInfo', volumeInfo));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _BookModel &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.etag, etag) || other.etag == etag) &&
+        (other is _BookModel &&
+            (identical(other.id, id) ||
+                const DeepCollectionEquality().equals(other.id, id)) &&
+            (identical(other.etag, etag) ||
+                const DeepCollectionEquality().equals(other.etag, etag)) &&
             (identical(other.selfLink, selfLink) ||
-                other.selfLink == selfLink) &&
-            (identical(other.info, info) || other.info == info));
+                const DeepCollectionEquality()
+                    .equals(other.selfLink, selfLink)) &&
+            (identical(other.volumeInfo, volumeInfo) ||
+                const DeepCollectionEquality()
+                    .equals(other.volumeInfo, volumeInfo)));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, etag, selfLink, info);
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(id) ^
+      const DeepCollectionEquality().hash(etag) ^
+      const DeepCollectionEquality().hash(selfLink) ^
+      const DeepCollectionEquality().hash(volumeInfo);
 
   @JsonKey(ignore: true)
   @override
@@ -207,143 +224,132 @@ class _$_BookModel extends _BookModel with DiagnosticableTreeMixin {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_BookModelToJson(this);
+    return _$_$_BookModelToJson(this);
   }
 }
 
 abstract class _BookModel extends BookModel {
   const factory _BookModel(
-      String id, String? etag, Uri? selfLink, BookInfo info) = _$_BookModel;
+      {required String id,
+      required String etag,
+      required Uri selfLink,
+      required VolumeInfo volumeInfo}) = _$_BookModel;
   const _BookModel._() : super._();
 
   factory _BookModel.fromJson(Map<String, dynamic> json) =
       _$_BookModel.fromJson;
 
   @override
-  String get id;
+  String get id => throw _privateConstructorUsedError;
   @override
-  String? get etag;
+  String get etag => throw _privateConstructorUsedError;
   @override
-  Uri? get selfLink;
+  Uri get selfLink => throw _privateConstructorUsedError;
   @override
-  BookInfo get info;
+  VolumeInfo get volumeInfo => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$BookModelCopyWith<_BookModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
-BookInfo _$BookInfoFromJson(Map<String, dynamic> json) {
-  return _BookInfo.fromJson(json);
+VolumeInfo _$VolumeInfoFromJson(Map<String, dynamic> json) {
+  return _VolumeInfo.fromJson(json);
 }
 
 /// @nodoc
-class _$BookInfoTearOff {
-  const _$BookInfoTearOff();
+class _$VolumeInfoTearOff {
+  const _$VolumeInfoTearOff();
 
-  _BookInfo call(
-      String title,
-      List<String> authors,
-      String publisher,
-      String? publishedDate,
-      String rawPublishedDate,
-      String description,
-      int pageCount,
-      String printType,
-      List<String> categories,
-      double averageRating,
-      int ratingsCount,
-      Map<String, Uri> imageLinks,
-      String language,
-      List<IndustryIdentifier> industryIdentifier) {
-    return _BookInfo(
-      title,
-      authors,
-      publisher,
-      publishedDate,
-      rawPublishedDate,
-      description,
-      pageCount,
-      printType,
-      categories,
-      averageRating,
-      ratingsCount,
-      imageLinks,
-      language,
-      industryIdentifier,
+  _VolumeInfo call(
+      {required String title,
+      List<String>? authors,
+      String? publisher = '',
+      String? description,
+      int? pageCount,
+      String? printType,
+      List<String> categories = const ['Uncategorized'],
+      double? averageRating,
+      int? ratingsCount,
+      ImageLinks? imageLinks}) {
+    return _VolumeInfo(
+      title: title,
+      authors: authors,
+      publisher: publisher,
+      description: description,
+      pageCount: pageCount,
+      printType: printType,
+      categories: categories,
+      averageRating: averageRating,
+      ratingsCount: ratingsCount,
+      imageLinks: imageLinks,
     );
   }
 
-  BookInfo fromJson(Map<String, Object?> json) {
-    return BookInfo.fromJson(json);
+  VolumeInfo fromJson(Map<String, Object> json) {
+    return VolumeInfo.fromJson(json);
   }
 }
 
 /// @nodoc
-const $BookInfo = _$BookInfoTearOff();
+const $VolumeInfo = _$VolumeInfoTearOff();
 
 /// @nodoc
-mixin _$BookInfo {
-  String get title => throw _privateConstructorUsedError;
-  List<String> get authors => throw _privateConstructorUsedError;
-  String get publisher => throw _privateConstructorUsedError;
-  String? get publishedDate => throw _privateConstructorUsedError;
-  String get rawPublishedDate => throw _privateConstructorUsedError;
-  String get description => throw _privateConstructorUsedError;
-  int get pageCount => throw _privateConstructorUsedError;
-  String get printType => throw _privateConstructorUsedError;
+mixin _$VolumeInfo {
+  String get title => throw _privateConstructorUsedError; //String? subtitle,
+  List<String>? get authors => throw _privateConstructorUsedError;
+  String? get publisher =>
+      throw _privateConstructorUsedError; // final String? publishedDate,
+// final String rawPublishedDate,
+  String? get description => throw _privateConstructorUsedError;
+  int? get pageCount => throw _privateConstructorUsedError;
+  String? get printType => throw _privateConstructorUsedError;
   List<String> get categories => throw _privateConstructorUsedError;
-  double get averageRating => throw _privateConstructorUsedError;
-  int get ratingsCount =>
-      throw _privateConstructorUsedError; //final String maturityRating,
-//final String contentVersion,
-  Map<String, Uri> get imageLinks => throw _privateConstructorUsedError;
-  String get language => throw _privateConstructorUsedError;
-  List<IndustryIdentifier> get industryIdentifier =>
-      throw _privateConstructorUsedError;
+  double? get averageRating => throw _privateConstructorUsedError;
+  int? get ratingsCount =>
+      throw _privateConstructorUsedError; // //final String maturityRating,
+// //final String contentVersion,
+  ImageLinks? get imageLinks => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $BookInfoCopyWith<BookInfo> get copyWith =>
+  $VolumeInfoCopyWith<VolumeInfo> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $BookInfoCopyWith<$Res> {
-  factory $BookInfoCopyWith(BookInfo value, $Res Function(BookInfo) then) =
-      _$BookInfoCopyWithImpl<$Res>;
+abstract class $VolumeInfoCopyWith<$Res> {
+  factory $VolumeInfoCopyWith(
+          VolumeInfo value, $Res Function(VolumeInfo) then) =
+      _$VolumeInfoCopyWithImpl<$Res>;
   $Res call(
       {String title,
-      List<String> authors,
-      String publisher,
-      String? publishedDate,
-      String rawPublishedDate,
-      String description,
-      int pageCount,
-      String printType,
+      List<String>? authors,
+      String? publisher,
+      String? description,
+      int? pageCount,
+      String? printType,
       List<String> categories,
-      double averageRating,
-      int ratingsCount,
-      Map<String, Uri> imageLinks,
-      String language,
-      List<IndustryIdentifier> industryIdentifier});
+      double? averageRating,
+      int? ratingsCount,
+      ImageLinks? imageLinks});
+
+  $ImageLinksCopyWith<$Res>? get imageLinks;
 }
 
 /// @nodoc
-class _$BookInfoCopyWithImpl<$Res> implements $BookInfoCopyWith<$Res> {
-  _$BookInfoCopyWithImpl(this._value, this._then);
+class _$VolumeInfoCopyWithImpl<$Res> implements $VolumeInfoCopyWith<$Res> {
+  _$VolumeInfoCopyWithImpl(this._value, this._then);
 
-  final BookInfo _value;
+  final VolumeInfo _value;
   // ignore: unused_field
-  final $Res Function(BookInfo) _then;
+  final $Res Function(VolumeInfo) _then;
 
   @override
   $Res call({
     Object? title = freezed,
     Object? authors = freezed,
     Object? publisher = freezed,
-    Object? publishedDate = freezed,
-    Object? rawPublishedDate = freezed,
     Object? description = freezed,
     Object? pageCount = freezed,
     Object? printType = freezed,
@@ -351,8 +357,6 @@ class _$BookInfoCopyWithImpl<$Res> implements $BookInfoCopyWith<$Res> {
     Object? averageRating = freezed,
     Object? ratingsCount = freezed,
     Object? imageLinks = freezed,
-    Object? language = freezed,
-    Object? industryIdentifier = freezed,
   }) {
     return _then(_value.copyWith(
       title: title == freezed
@@ -362,31 +366,23 @@ class _$BookInfoCopyWithImpl<$Res> implements $BookInfoCopyWith<$Res> {
       authors: authors == freezed
           ? _value.authors
           : authors // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<String>?,
       publisher: publisher == freezed
           ? _value.publisher
           : publisher // ignore: cast_nullable_to_non_nullable
-              as String,
-      publishedDate: publishedDate == freezed
-          ? _value.publishedDate
-          : publishedDate // ignore: cast_nullable_to_non_nullable
               as String?,
-      rawPublishedDate: rawPublishedDate == freezed
-          ? _value.rawPublishedDate
-          : rawPublishedDate // ignore: cast_nullable_to_non_nullable
-              as String,
       description: description == freezed
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       pageCount: pageCount == freezed
           ? _value.pageCount
           : pageCount // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       printType: printType == freezed
           ? _value.printType
           : printType // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       categories: categories == freezed
           ? _value.categories
           : categories // ignore: cast_nullable_to_non_nullable
@@ -394,65 +390,67 @@ class _$BookInfoCopyWithImpl<$Res> implements $BookInfoCopyWith<$Res> {
       averageRating: averageRating == freezed
           ? _value.averageRating
           : averageRating // ignore: cast_nullable_to_non_nullable
-              as double,
+              as double?,
       ratingsCount: ratingsCount == freezed
           ? _value.ratingsCount
           : ratingsCount // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       imageLinks: imageLinks == freezed
           ? _value.imageLinks
           : imageLinks // ignore: cast_nullable_to_non_nullable
-              as Map<String, Uri>,
-      language: language == freezed
-          ? _value.language
-          : language // ignore: cast_nullable_to_non_nullable
-              as String,
-      industryIdentifier: industryIdentifier == freezed
-          ? _value.industryIdentifier
-          : industryIdentifier // ignore: cast_nullable_to_non_nullable
-              as List<IndustryIdentifier>,
+              as ImageLinks?,
     ));
+  }
+
+  @override
+  $ImageLinksCopyWith<$Res>? get imageLinks {
+    if (_value.imageLinks == null) {
+      return null;
+    }
+
+    return $ImageLinksCopyWith<$Res>(_value.imageLinks!, (value) {
+      return _then(_value.copyWith(imageLinks: value));
+    });
   }
 }
 
 /// @nodoc
-abstract class _$BookInfoCopyWith<$Res> implements $BookInfoCopyWith<$Res> {
-  factory _$BookInfoCopyWith(_BookInfo value, $Res Function(_BookInfo) then) =
-      __$BookInfoCopyWithImpl<$Res>;
+abstract class _$VolumeInfoCopyWith<$Res> implements $VolumeInfoCopyWith<$Res> {
+  factory _$VolumeInfoCopyWith(
+          _VolumeInfo value, $Res Function(_VolumeInfo) then) =
+      __$VolumeInfoCopyWithImpl<$Res>;
   @override
   $Res call(
       {String title,
-      List<String> authors,
-      String publisher,
-      String? publishedDate,
-      String rawPublishedDate,
-      String description,
-      int pageCount,
-      String printType,
+      List<String>? authors,
+      String? publisher,
+      String? description,
+      int? pageCount,
+      String? printType,
       List<String> categories,
-      double averageRating,
-      int ratingsCount,
-      Map<String, Uri> imageLinks,
-      String language,
-      List<IndustryIdentifier> industryIdentifier});
+      double? averageRating,
+      int? ratingsCount,
+      ImageLinks? imageLinks});
+
+  @override
+  $ImageLinksCopyWith<$Res>? get imageLinks;
 }
 
 /// @nodoc
-class __$BookInfoCopyWithImpl<$Res> extends _$BookInfoCopyWithImpl<$Res>
-    implements _$BookInfoCopyWith<$Res> {
-  __$BookInfoCopyWithImpl(_BookInfo _value, $Res Function(_BookInfo) _then)
-      : super(_value, (v) => _then(v as _BookInfo));
+class __$VolumeInfoCopyWithImpl<$Res> extends _$VolumeInfoCopyWithImpl<$Res>
+    implements _$VolumeInfoCopyWith<$Res> {
+  __$VolumeInfoCopyWithImpl(
+      _VolumeInfo _value, $Res Function(_VolumeInfo) _then)
+      : super(_value, (v) => _then(v as _VolumeInfo));
 
   @override
-  _BookInfo get _value => super._value as _BookInfo;
+  _VolumeInfo get _value => super._value as _VolumeInfo;
 
   @override
   $Res call({
     Object? title = freezed,
     Object? authors = freezed,
     Object? publisher = freezed,
-    Object? publishedDate = freezed,
-    Object? rawPublishedDate = freezed,
     Object? description = freezed,
     Object? pageCount = freezed,
     Object? printType = freezed,
@@ -460,263 +458,220 @@ class __$BookInfoCopyWithImpl<$Res> extends _$BookInfoCopyWithImpl<$Res>
     Object? averageRating = freezed,
     Object? ratingsCount = freezed,
     Object? imageLinks = freezed,
-    Object? language = freezed,
-    Object? industryIdentifier = freezed,
   }) {
-    return _then(_BookInfo(
-      title == freezed
+    return _then(_VolumeInfo(
+      title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      authors == freezed
+      authors: authors == freezed
           ? _value.authors
           : authors // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      publisher == freezed
+              as List<String>?,
+      publisher: publisher == freezed
           ? _value.publisher
           : publisher // ignore: cast_nullable_to_non_nullable
-              as String,
-      publishedDate == freezed
-          ? _value.publishedDate
-          : publishedDate // ignore: cast_nullable_to_non_nullable
               as String?,
-      rawPublishedDate == freezed
-          ? _value.rawPublishedDate
-          : rawPublishedDate // ignore: cast_nullable_to_non_nullable
-              as String,
-      description == freezed
+      description: description == freezed
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String,
-      pageCount == freezed
+              as String?,
+      pageCount: pageCount == freezed
           ? _value.pageCount
           : pageCount // ignore: cast_nullable_to_non_nullable
-              as int,
-      printType == freezed
+              as int?,
+      printType: printType == freezed
           ? _value.printType
           : printType // ignore: cast_nullable_to_non_nullable
-              as String,
-      categories == freezed
+              as String?,
+      categories: categories == freezed
           ? _value.categories
           : categories // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      averageRating == freezed
+      averageRating: averageRating == freezed
           ? _value.averageRating
           : averageRating // ignore: cast_nullable_to_non_nullable
-              as double,
-      ratingsCount == freezed
+              as double?,
+      ratingsCount: ratingsCount == freezed
           ? _value.ratingsCount
           : ratingsCount // ignore: cast_nullable_to_non_nullable
-              as int,
-      imageLinks == freezed
+              as int?,
+      imageLinks: imageLinks == freezed
           ? _value.imageLinks
           : imageLinks // ignore: cast_nullable_to_non_nullable
-              as Map<String, Uri>,
-      language == freezed
-          ? _value.language
-          : language // ignore: cast_nullable_to_non_nullable
-              as String,
-      industryIdentifier == freezed
-          ? _value.industryIdentifier
-          : industryIdentifier // ignore: cast_nullable_to_non_nullable
-              as List<IndustryIdentifier>,
+              as ImageLinks?,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$_BookInfo extends _BookInfo with DiagnosticableTreeMixin {
-  const _$_BookInfo(
-      this.title,
+class _$_VolumeInfo extends _VolumeInfo with DiagnosticableTreeMixin {
+  const _$_VolumeInfo(
+      {required this.title,
       this.authors,
-      this.publisher,
-      this.publishedDate,
-      this.rawPublishedDate,
+      this.publisher = '',
       this.description,
       this.pageCount,
       this.printType,
-      this.categories,
+      this.categories = const ['Uncategorized'],
       this.averageRating,
       this.ratingsCount,
-      this.imageLinks,
-      this.language,
-      this.industryIdentifier)
+      this.imageLinks})
       : super._();
 
-  factory _$_BookInfo.fromJson(Map<String, dynamic> json) =>
-      _$$_BookInfoFromJson(json);
+  factory _$_VolumeInfo.fromJson(Map<String, dynamic> json) =>
+      _$_$_VolumeInfoFromJson(json);
 
   @override
   final String title;
+  @override //String? subtitle,
+  final List<String>? authors;
+  @JsonKey(defaultValue: '')
   @override
-  final List<String> authors;
+  final String? publisher;
+  @override // final String? publishedDate,
+// final String rawPublishedDate,
+  final String? description;
   @override
-  final String publisher;
+  final int? pageCount;
   @override
-  final String? publishedDate;
-  @override
-  final String rawPublishedDate;
-  @override
-  final String description;
-  @override
-  final int pageCount;
-  @override
-  final String printType;
+  final String? printType;
+  @JsonKey(defaultValue: const ['Uncategorized'])
   @override
   final List<String> categories;
   @override
-  final double averageRating;
+  final double? averageRating;
   @override
-  final int ratingsCount;
-  @override //final String maturityRating,
-//final String contentVersion,
-  final Map<String, Uri> imageLinks;
-  @override
-  final String language;
-  @override
-  final List<IndustryIdentifier> industryIdentifier;
+  final int? ratingsCount;
+  @override // //final String maturityRating,
+// //final String contentVersion,
+  final ImageLinks? imageLinks;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'BookInfo(title: $title, authors: $authors, publisher: $publisher, publishedDate: $publishedDate, rawPublishedDate: $rawPublishedDate, description: $description, pageCount: $pageCount, printType: $printType, categories: $categories, averageRating: $averageRating, ratingsCount: $ratingsCount, imageLinks: $imageLinks, language: $language, industryIdentifier: $industryIdentifier)';
+    return 'VolumeInfo(title: $title, authors: $authors, publisher: $publisher, description: $description, pageCount: $pageCount, printType: $printType, categories: $categories, averageRating: $averageRating, ratingsCount: $ratingsCount, imageLinks: $imageLinks)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'BookInfo'))
+      ..add(DiagnosticsProperty('type', 'VolumeInfo'))
       ..add(DiagnosticsProperty('title', title))
       ..add(DiagnosticsProperty('authors', authors))
       ..add(DiagnosticsProperty('publisher', publisher))
-      ..add(DiagnosticsProperty('publishedDate', publishedDate))
-      ..add(DiagnosticsProperty('rawPublishedDate', rawPublishedDate))
       ..add(DiagnosticsProperty('description', description))
       ..add(DiagnosticsProperty('pageCount', pageCount))
       ..add(DiagnosticsProperty('printType', printType))
       ..add(DiagnosticsProperty('categories', categories))
       ..add(DiagnosticsProperty('averageRating', averageRating))
       ..add(DiagnosticsProperty('ratingsCount', ratingsCount))
-      ..add(DiagnosticsProperty('imageLinks', imageLinks))
-      ..add(DiagnosticsProperty('language', language))
-      ..add(DiagnosticsProperty('industryIdentifier', industryIdentifier));
+      ..add(DiagnosticsProperty('imageLinks', imageLinks));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _BookInfo &&
-            (identical(other.title, title) || other.title == title) &&
-            const DeepCollectionEquality().equals(other.authors, authors) &&
+        (other is _VolumeInfo &&
+            (identical(other.title, title) ||
+                const DeepCollectionEquality().equals(other.title, title)) &&
+            (identical(other.authors, authors) ||
+                const DeepCollectionEquality()
+                    .equals(other.authors, authors)) &&
             (identical(other.publisher, publisher) ||
-                other.publisher == publisher) &&
-            (identical(other.publishedDate, publishedDate) ||
-                other.publishedDate == publishedDate) &&
-            (identical(other.rawPublishedDate, rawPublishedDate) ||
-                other.rawPublishedDate == rawPublishedDate) &&
+                const DeepCollectionEquality()
+                    .equals(other.publisher, publisher)) &&
             (identical(other.description, description) ||
-                other.description == description) &&
+                const DeepCollectionEquality()
+                    .equals(other.description, description)) &&
             (identical(other.pageCount, pageCount) ||
-                other.pageCount == pageCount) &&
+                const DeepCollectionEquality()
+                    .equals(other.pageCount, pageCount)) &&
             (identical(other.printType, printType) ||
-                other.printType == printType) &&
-            const DeepCollectionEquality()
-                .equals(other.categories, categories) &&
+                const DeepCollectionEquality()
+                    .equals(other.printType, printType)) &&
+            (identical(other.categories, categories) ||
+                const DeepCollectionEquality()
+                    .equals(other.categories, categories)) &&
             (identical(other.averageRating, averageRating) ||
-                other.averageRating == averageRating) &&
+                const DeepCollectionEquality()
+                    .equals(other.averageRating, averageRating)) &&
             (identical(other.ratingsCount, ratingsCount) ||
-                other.ratingsCount == ratingsCount) &&
-            const DeepCollectionEquality()
-                .equals(other.imageLinks, imageLinks) &&
-            (identical(other.language, language) ||
-                other.language == language) &&
-            const DeepCollectionEquality()
-                .equals(other.industryIdentifier, industryIdentifier));
+                const DeepCollectionEquality()
+                    .equals(other.ratingsCount, ratingsCount)) &&
+            (identical(other.imageLinks, imageLinks) ||
+                const DeepCollectionEquality()
+                    .equals(other.imageLinks, imageLinks)));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      title,
-      const DeepCollectionEquality().hash(authors),
-      publisher,
-      publishedDate,
-      rawPublishedDate,
-      description,
-      pageCount,
-      printType,
-      const DeepCollectionEquality().hash(categories),
-      averageRating,
-      ratingsCount,
-      const DeepCollectionEquality().hash(imageLinks),
-      language,
-      const DeepCollectionEquality().hash(industryIdentifier));
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(title) ^
+      const DeepCollectionEquality().hash(authors) ^
+      const DeepCollectionEquality().hash(publisher) ^
+      const DeepCollectionEquality().hash(description) ^
+      const DeepCollectionEquality().hash(pageCount) ^
+      const DeepCollectionEquality().hash(printType) ^
+      const DeepCollectionEquality().hash(categories) ^
+      const DeepCollectionEquality().hash(averageRating) ^
+      const DeepCollectionEquality().hash(ratingsCount) ^
+      const DeepCollectionEquality().hash(imageLinks);
 
   @JsonKey(ignore: true)
   @override
-  _$BookInfoCopyWith<_BookInfo> get copyWith =>
-      __$BookInfoCopyWithImpl<_BookInfo>(this, _$identity);
+  _$VolumeInfoCopyWith<_VolumeInfo> get copyWith =>
+      __$VolumeInfoCopyWithImpl<_VolumeInfo>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_BookInfoToJson(this);
+    return _$_$_VolumeInfoToJson(this);
   }
 }
 
-abstract class _BookInfo extends BookInfo {
-  const factory _BookInfo(
-      String title,
-      List<String> authors,
-      String publisher,
-      String? publishedDate,
-      String rawPublishedDate,
-      String description,
-      int pageCount,
-      String printType,
+abstract class _VolumeInfo extends VolumeInfo {
+  const factory _VolumeInfo(
+      {required String title,
+      List<String>? authors,
+      String? publisher,
+      String? description,
+      int? pageCount,
+      String? printType,
       List<String> categories,
-      double averageRating,
-      int ratingsCount,
-      Map<String, Uri> imageLinks,
-      String language,
-      List<IndustryIdentifier> industryIdentifier) = _$_BookInfo;
-  const _BookInfo._() : super._();
+      double? averageRating,
+      int? ratingsCount,
+      ImageLinks? imageLinks}) = _$_VolumeInfo;
+  const _VolumeInfo._() : super._();
 
-  factory _BookInfo.fromJson(Map<String, dynamic> json) = _$_BookInfo.fromJson;
+  factory _VolumeInfo.fromJson(Map<String, dynamic> json) =
+      _$_VolumeInfo.fromJson;
 
   @override
-  String get title;
+  String get title => throw _privateConstructorUsedError;
+  @override //String? subtitle,
+  List<String>? get authors => throw _privateConstructorUsedError;
   @override
-  List<String> get authors;
+  String? get publisher => throw _privateConstructorUsedError;
+  @override // final String? publishedDate,
+// final String rawPublishedDate,
+  String? get description => throw _privateConstructorUsedError;
   @override
-  String get publisher;
+  int? get pageCount => throw _privateConstructorUsedError;
   @override
-  String? get publishedDate;
+  String? get printType => throw _privateConstructorUsedError;
   @override
-  String get rawPublishedDate;
+  List<String> get categories => throw _privateConstructorUsedError;
   @override
-  String get description;
+  double? get averageRating => throw _privateConstructorUsedError;
   @override
-  int get pageCount;
-  @override
-  String get printType;
-  @override
-  List<String> get categories;
-  @override
-  double get averageRating;
-  @override
-  int get ratingsCount;
-  @override //final String maturityRating,
-//final String contentVersion,
-  Map<String, Uri> get imageLinks;
-  @override
-  String get language;
-  @override
-  List<IndustryIdentifier> get industryIdentifier;
+  int? get ratingsCount => throw _privateConstructorUsedError;
+  @override // //final String maturityRating,
+// //final String contentVersion,
+  ImageLinks? get imageLinks => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$BookInfoCopyWith<_BookInfo> get copyWith =>
+  _$VolumeInfoCopyWith<_VolumeInfo> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -735,7 +690,7 @@ class _$IndustryIdentifierTearOff {
     );
   }
 
-  IndustryIdentifier fromJson(Map<String, Object?> json) {
+  IndustryIdentifier fromJson(Map<String, Object> json) {
     return IndustryIdentifier.fromJson(json);
   }
 }
@@ -835,7 +790,7 @@ class _$_IndustryIdentifier extends _IndustryIdentifier
   const _$_IndustryIdentifier(this.type, this.identifier) : super._();
 
   factory _$_IndustryIdentifier.fromJson(Map<String, dynamic> json) =>
-      _$$_IndustryIdentifierFromJson(json);
+      _$_$_IndustryIdentifierFromJson(json);
 
   @override
   final String type;
@@ -859,15 +814,19 @@ class _$_IndustryIdentifier extends _IndustryIdentifier
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _IndustryIdentifier &&
-            (identical(other.type, type) || other.type == type) &&
+        (other is _IndustryIdentifier &&
+            (identical(other.type, type) ||
+                const DeepCollectionEquality().equals(other.type, type)) &&
             (identical(other.identifier, identifier) ||
-                other.identifier == identifier));
+                const DeepCollectionEquality()
+                    .equals(other.identifier, identifier)));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, type, identifier);
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(type) ^
+      const DeepCollectionEquality().hash(identifier);
 
   @JsonKey(ignore: true)
   @override
@@ -876,7 +835,7 @@ class _$_IndustryIdentifier extends _IndustryIdentifier
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_IndustryIdentifierToJson(this);
+    return _$_$_IndustryIdentifierToJson(this);
   }
 }
 
@@ -889,11 +848,193 @@ abstract class _IndustryIdentifier extends IndustryIdentifier {
       _$_IndustryIdentifier.fromJson;
 
   @override
-  String get type;
+  String get type => throw _privateConstructorUsedError;
   @override
-  String get identifier;
+  String get identifier => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$IndustryIdentifierCopyWith<_IndustryIdentifier> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+ImageLinks _$ImageLinksFromJson(Map<String, dynamic> json) {
+  return _ImageLinks.fromJson(json);
+}
+
+/// @nodoc
+class _$ImageLinksTearOff {
+  const _$ImageLinksTearOff();
+
+  _ImageLinks call(
+      {required String smallThumbnail, required String thumbnail}) {
+    return _ImageLinks(
+      smallThumbnail: smallThumbnail,
+      thumbnail: thumbnail,
+    );
+  }
+
+  ImageLinks fromJson(Map<String, Object> json) {
+    return ImageLinks.fromJson(json);
+  }
+}
+
+/// @nodoc
+const $ImageLinks = _$ImageLinksTearOff();
+
+/// @nodoc
+mixin _$ImageLinks {
+  String get smallThumbnail => throw _privateConstructorUsedError;
+  String get thumbnail => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ImageLinksCopyWith<ImageLinks> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ImageLinksCopyWith<$Res> {
+  factory $ImageLinksCopyWith(
+          ImageLinks value, $Res Function(ImageLinks) then) =
+      _$ImageLinksCopyWithImpl<$Res>;
+  $Res call({String smallThumbnail, String thumbnail});
+}
+
+/// @nodoc
+class _$ImageLinksCopyWithImpl<$Res> implements $ImageLinksCopyWith<$Res> {
+  _$ImageLinksCopyWithImpl(this._value, this._then);
+
+  final ImageLinks _value;
+  // ignore: unused_field
+  final $Res Function(ImageLinks) _then;
+
+  @override
+  $Res call({
+    Object? smallThumbnail = freezed,
+    Object? thumbnail = freezed,
+  }) {
+    return _then(_value.copyWith(
+      smallThumbnail: smallThumbnail == freezed
+          ? _value.smallThumbnail
+          : smallThumbnail // ignore: cast_nullable_to_non_nullable
+              as String,
+      thumbnail: thumbnail == freezed
+          ? _value.thumbnail
+          : thumbnail // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$ImageLinksCopyWith<$Res> implements $ImageLinksCopyWith<$Res> {
+  factory _$ImageLinksCopyWith(
+          _ImageLinks value, $Res Function(_ImageLinks) then) =
+      __$ImageLinksCopyWithImpl<$Res>;
+  @override
+  $Res call({String smallThumbnail, String thumbnail});
+}
+
+/// @nodoc
+class __$ImageLinksCopyWithImpl<$Res> extends _$ImageLinksCopyWithImpl<$Res>
+    implements _$ImageLinksCopyWith<$Res> {
+  __$ImageLinksCopyWithImpl(
+      _ImageLinks _value, $Res Function(_ImageLinks) _then)
+      : super(_value, (v) => _then(v as _ImageLinks));
+
+  @override
+  _ImageLinks get _value => super._value as _ImageLinks;
+
+  @override
+  $Res call({
+    Object? smallThumbnail = freezed,
+    Object? thumbnail = freezed,
+  }) {
+    return _then(_ImageLinks(
+      smallThumbnail: smallThumbnail == freezed
+          ? _value.smallThumbnail
+          : smallThumbnail // ignore: cast_nullable_to_non_nullable
+              as String,
+      thumbnail: thumbnail == freezed
+          ? _value.thumbnail
+          : thumbnail // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_ImageLinks extends _ImageLinks with DiagnosticableTreeMixin {
+  const _$_ImageLinks({required this.smallThumbnail, required this.thumbnail})
+      : super._();
+
+  factory _$_ImageLinks.fromJson(Map<String, dynamic> json) =>
+      _$_$_ImageLinksFromJson(json);
+
+  @override
+  final String smallThumbnail;
+  @override
+  final String thumbnail;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'ImageLinks(smallThumbnail: $smallThumbnail, thumbnail: $thumbnail)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ImageLinks'))
+      ..add(DiagnosticsProperty('smallThumbnail', smallThumbnail))
+      ..add(DiagnosticsProperty('thumbnail', thumbnail));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _ImageLinks &&
+            (identical(other.smallThumbnail, smallThumbnail) ||
+                const DeepCollectionEquality()
+                    .equals(other.smallThumbnail, smallThumbnail)) &&
+            (identical(other.thumbnail, thumbnail) ||
+                const DeepCollectionEquality()
+                    .equals(other.thumbnail, thumbnail)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(smallThumbnail) ^
+      const DeepCollectionEquality().hash(thumbnail);
+
+  @JsonKey(ignore: true)
+  @override
+  _$ImageLinksCopyWith<_ImageLinks> get copyWith =>
+      __$ImageLinksCopyWithImpl<_ImageLinks>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$_ImageLinksToJson(this);
+  }
+}
+
+abstract class _ImageLinks extends ImageLinks {
+  const factory _ImageLinks(
+      {required String smallThumbnail,
+      required String thumbnail}) = _$_ImageLinks;
+  const _ImageLinks._() : super._();
+
+  factory _ImageLinks.fromJson(Map<String, dynamic> json) =
+      _$_ImageLinks.fromJson;
+
+  @override
+  String get smallThumbnail => throw _privateConstructorUsedError;
+  @override
+  String get thumbnail => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(ignore: true)
+  _$ImageLinksCopyWith<_ImageLinks> get copyWith =>
       throw _privateConstructorUsedError;
 }

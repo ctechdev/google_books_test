@@ -40,3 +40,5 @@ linter:
   
     # Back to the 80s
     lines_longer_than_80_chars: true
+
+    require_trailing_commas: false

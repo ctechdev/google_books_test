@@ -6,12 +6,12 @@ part 'book_model.g.dart';
 
 @freezed
 class BookModel with _$BookModel {
-  const factory BookModel(
-    final String id,
-    final String? etag,
-    final Uri? selfLink,
-    final BookInfo info,
-  ) = _BookModel;
+  const factory BookModel({
+    required String id,
+    required String etag,
+    required Uri selfLink,
+    required VolumeInfo volumeInfo,
+  }) = _BookModel;
 
   const BookModel._();
   factory BookModel.fromJson(Map<String, dynamic> json) =>
@@ -19,28 +19,29 @@ class BookModel with _$BookModel {
 }
 
 @freezed
-class BookInfo with _$BookInfo {
-  const factory BookInfo(
-    final String title,
-    final List<String> authors,
-    final String publisher,
-    final String? publishedDate,
-    final String rawPublishedDate,
-    final String description,
-    final int pageCount,
-    final String printType,
-    final List<String> categories,
-    final double averageRating,
-    final int ratingsCount,
-    //final String maturityRating,
-    //final String contentVersion,
-    final Map<String, Uri> imageLinks,
-    final String language,
-    final List<IndustryIdentifier> industryIdentifier,
-  ) = _BookInfo;
-  const BookInfo._();
-  factory BookInfo.fromJson(Map<String, dynamic> json) =>
-      _$BookInfoFromJson(json);
+class VolumeInfo with _$VolumeInfo {
+  const factory VolumeInfo({
+    required String title,
+    //String? subtitle,
+    List<String>? authors,
+    @Default('') String? publisher,
+    // final String? publishedDate,
+    // final String rawPublishedDate,
+    String? description,
+    int? pageCount,
+    String? printType,
+    @Default(['Uncategorized'])List<String> categories,
+    double? averageRating,
+    int? ratingsCount,
+    // //final String maturityRating,
+    // //final String contentVersion,
+    ImageLinks? imageLinks,
+    // final String language,
+    //final List<IndustryIdentifier> industryIdentifier,
+  }) = _VolumeInfo;
+  const VolumeInfo._();
+  factory VolumeInfo.fromJson(Map<String, dynamic> json) =>
+      _$VolumeInfoFromJson(json);
 }
 
 @freezed
@@ -52,4 +53,15 @@ class IndustryIdentifier with _$IndustryIdentifier {
   const IndustryIdentifier._();
   factory IndustryIdentifier.fromJson(Map<String, dynamic> json) =>
       _$IndustryIdentifierFromJson(json);
+}
+
+@freezed
+class ImageLinks with _$ImageLinks {
+  const factory ImageLinks({
+    required String smallThumbnail,
+    required String thumbnail,
+  }) = _ImageLinks;
+  const ImageLinks._();
+  factory ImageLinks.fromJson(Map<String, dynamic> json) =>
+      _$ImageLinksFromJson(json);
 }
