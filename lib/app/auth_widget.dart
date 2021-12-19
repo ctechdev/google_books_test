@@ -27,7 +27,7 @@ class AuthWidget extends ConsumerWidget {
       error: (_, __,___) => const Scaffold(
         body: EmptyContent(
           title: 'Something went wrong',
-          message: 'Can\'t load data right now.',
+          message: "Can't load data right now.",
         ),
       ),
     );

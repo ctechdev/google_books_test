@@ -37,7 +37,7 @@ class FavouritesPage extends HookConsumerWidget {
                       ),
                       maxLines: 2))),
           Positioned(
-              top: 80,
+              top: 100,
               left: 20,
               right: 20,
               bottom: 4,
@@ -46,11 +46,11 @@ class FavouritesPage extends HookConsumerWidget {
                 builder: (BuildContext context,
                     AsyncSnapshot<QuerySnapshot> snapshot) {
                   if (snapshot.hasError) {
-                    return Text('Something went wrong');
+                    return const Text('Something went wrong');
                   }
 
                   if (snapshot.connectionState == ConnectionState.waiting) {
-                    return Text("Loading");
+                    return const Text("Loading");
                   }
 
                   return ListView(
